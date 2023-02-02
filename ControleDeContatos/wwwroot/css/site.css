@@ -1,0 +1,41 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+.close-alert{
+    position:absolute;
+    right:-10px;
+    top:-16px;
+    border-radius:20px;
+    border:inherit;
+    width:15px;
+    height:25px;
+}
+/*.field-validation-error {
+    padding:3px;
+    margin:3px;
+    color: red;
+    font-size: small;
+}
+.field-validation-error::before{
+    content: "*";
+}*/
+
+.centralizar{
+    margin:auto 0;
+}

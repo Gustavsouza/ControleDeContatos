@@ -1,0 +1,44 @@
+﻿@model RedefinirSenhaModel
+@{
+	Layout = "_LayoutDeslogado";
+	ViewData["Title"] = "Redefinir Senha";
+}
+
+@if (TempData["MensagemSucesso"] != null)
+{
+	<div class="alert alert-success" role="alert">
+		<button type="button" class="btn btn-danger btn-sm btn-close close-alert" arial-label="Close"></button> @TempData["MensagemSucesso"]
+	</div>
+}
+@if (TempData["MensagemErro"] != null)
+{
+	<div class="alert alert-danger" role="alert">
+		<button type="button" class="btn btn-danger btn-sm btn-close close-alert " arial-label="Close"></button>
+		@TempData["MensagemErro"]
+	</div>
+}
+
+
+<link href="~/css/LoginStyleSheet.css" rel="stylesheet">
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+
+<form class="form-signin" asp-controller="Login" asp-action="EnviarLinkParaRedefinirSenha" method="post">
+	<h1 class="form-signin-heading text-muted">Redefinir Senha</h1>
+	<label for="Login">  <span style="color:red; font-size:small">        @Html.ValidationMessageFor(x=> x.Login)  <span />  </label>
+	<input type="text" asp-for="Login" class="form-control" placeholder="Login" id="Login">
+	<label for="email"> <span style="color:red; font-size:small">        @Html.ValidationMessageFor(x=> x.Email)  <span /> </label>
+	<input type="text" asp-for="Email" class="form-control" placeholder="Email" id="email">
+	<br />
+	<button class="btn btn-lg btn-primary btn-block" type="submit">
+		Redefinir senha
+	</button>
+	<br />
+	<button type="submit" class="btn btn-lg btn-secondary btn-block"><a asp-controller="Login" style="color:azure" asp-action="Index">Voltar</a></button>
+</form>
+
+
+
+

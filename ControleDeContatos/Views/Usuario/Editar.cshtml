@@ -1,0 +1,53 @@
+﻿@using ControleDeContatos.Enums;
+@model UsuarioModel
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@{
+    ViewData["Title"] = "Editar Usuario";
+}
+<div class="text-center">
+
+    <h1 class="display-5" style="text-align:center"> Editar Usuario: </h1>
+
+ </div>
+
+ 
+<form asp-controller="Usuario" asp-action="Alterar" method="post">
+    <input type="hidden" asp-for="id" />
+    <div class="mb-3">
+        @*nome*@
+        <div>
+        <label for="nome" class="form-label">Nome do usuário: </label>
+        <input type="text" asp-for="nome" class="form-control" id="nome" aria-describedby="nome" placeholder="">
+        @Html.ValidationMessageFor(x => x.nome)
+        </div>
+        @*email*@
+        <label for="email" class="form-label">Email do usuário:  <span style="color:red; font-size:small">        @Html.ValidationMessageFor(x=> x.email)  </span>  </label>
+        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" asp-for="email">
+        <div id="emailHelp" class="form-text">Nunca compartilharemos seu e-mail com mais ninguém.</div>
+
+        @*Login*@
+        <label for="login" class="form-label">Login do usuário: <span style="color:red; font-size:small">        @Html.ValidationMessageFor(x=> x.login)  </span> </label>
+        <input type="text" class="form-control" id="login" aria-describedby="login" asp-for="login">
+        <br />
+
+        @*Perfil*@
+        <label for="Perfil" class="form-label">Perfil: <span style="color:red; font-size:small">        @Html.ValidationMessageFor(x=> x.Perfil)  </span> </label>
+        @*    <input type="number" class="form-control" id="Perfil" aria-describedby="Perfil" asp-for="Perfil">*@
+        <select asp-for="Perfil" class="form-control"> 
+            <option value="">Selecione</option>
+            <option value="@PerfilEnum.Admin">Administrador</option>
+            <option value="@PerfilEnum.Padrao">Padrão</option>
+        </select>
+            @Html.ValidationMessageFor(x=> x.Perfil)
+        <br />
+        <button type="submit" class="btn btn-primary col-12" style="margin-bottom:0.5em">Alterar</button>
+
+        <a asp-controller="Usuario" asp-action="Index" class="btn btn-secondary col-12" role="button">Voltar</a>
+
+
+    </div>
+</form>

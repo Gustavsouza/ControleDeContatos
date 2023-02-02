@@ -1,0 +1,49 @@
+﻿@using ControleDeContatos.Enums;
+@model UsuarioModel
+@{
+    ViewData["Title"] = "Criar Contato";
+}
+<div class="text-center">
+
+    <h1 class="display-5" style="text-align:center"> Cadastrar Usuarios: </h1>
+   
+ </div>
+
+ <form asp-controller="Usuario" asp-action="Criar" method="post">
+
+
+
+  <div class="mb-3">
+    @*nome*@
+    <label for="nome" class="form-label">Nome do usuário:  <span style="color:red; font-size:small">        @Html.ValidationMessageFor(x=> x.nome)  <span/> </label>
+    <input type="text" asp-for="nome" class="form-control" id="nome" aria-describedby="nome" placeholder="">
+    
+    @*email*@
+        <label for="email" class="form-label">Email do usuário:  <span style="color:red; font-size:small">        @Html.ValidationMessageFor(x=> x.email)  </span>  </label>
+        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" asp-for="email">
+     <div id="emailHelp" class="form-text">Nunca compartilharemos seu e-mail com mais ninguém.</div>
+
+    @*Login*@
+        <label for="login" class="form-label">Login do usuário: <span style="color:red; font-size:small">        @Html.ValidationMessageFor(x=> x.login)  </span> </label>
+        <input type="text" class="form-control" id="login" aria-describedby="login" asp-for="login">
+    <br />
+
+    @*Perfil*@
+    <label for="Perfil" class="form-label">Perfil: <span style="color:red; font-size:small">        @Html.ValidationMessageFor(x=> x.Perfil)  </span> </label>
+@*    <input type="number" class="form-control" id="Perfil" aria-describedby="Perfil" asp-for="Perfil">*@
+    <select asp-for="Perfil" class="form-control">
+        <option value="0" >Selecione</option>
+        <option value="@PerfilEnum.Admin">Administrador</option>
+        <option value="@PerfilEnum.Padrao">Padrão</option>
+    </select>
+    <br />
+        <label for="Senha" class="form-label">Senha do usuário: <span style="color:red; font-size:small">        @Html.ValidationMessageFor(x=> x.Senha)  </span> </label>
+        <input type="password" class="form-control" id="Senha" aria-describedby="Senha" asp-for="Senha">
+        <br />
+    <button type="submit" class="btn btn-primary col-12" style="margin-bottom:0.5em">Adicionar</button>
+    
+    <a asp-controller="Usuario" asp-action="Index" class="btn btn-secondary col-12" role="button">Voltar</a>
+
+
+  </div>
+</form>

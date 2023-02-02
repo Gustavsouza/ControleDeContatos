@@ -1,0 +1,13 @@
+﻿@{
+    Layout = "_LayoutDeslogado";
+    ViewData["Title"] = "Restricted access";
+}
+<link src />
+
+<img src="~/css/restricted-access-stamp-png.png" class="img-fluid" alt="Você não tem permissão para acessar essa funcionalidade!">
+
+@*"centered" nas divs com a classe "col-lg-", "col-md-", "col-sm-" ou "col-xs-" (1-12).*@
+<div class="text-center">
+    <p>Você não tem permissão para acessar essa funcionalidade!</p>
+    <a asp-controller="Home" asp-action="Index"> <button type="button" class="btn btn-warning">Clique aqui para voltar para a Home</button></a>
+</div>
